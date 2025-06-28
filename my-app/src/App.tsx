@@ -40,7 +40,6 @@ function App() {
           className="bg-white shadow-md rounded-xl px-4 py-3 border border-gray-200 hover:bg-gray-50 transition"
         >
           {instrument.name}
-          Changes
         </li>
       ))}
     </ul>
