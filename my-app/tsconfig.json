@@ -1,0 +1,42 @@
+// tsconfig.json
+{
+  "compilerOptions": {
+    // Modern JS features
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+
+    // Module system used by Vite
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+
+    // React JSX transform (no need to import React)
+    "jsx": "react-jsx",
+
+    // Type safety
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "isolatedModules": true,
+
+    // Allow imports from packages like Supabase
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+
+    // Enables support for decorators (if ever needed)
+    "useDefineForClassFields": true,
+
+    // Disable JS files in TS
+    "allowJs": false,
+    "skipLibCheck": true,
+
+    // ✅ ADD THESE INSIDE compilerOptions
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+
+  "include": ["src", "vite-env.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
