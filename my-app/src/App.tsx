@@ -5,7 +5,7 @@ import { createClient } from '@supabase/supabase-js'
 type Instrument = {
   id: number
   name: string
-  // add more fields if your table has them
+  // add more fields if your table has them there
 }
 
 // 👇 Create a Supabase client (type is inferred)
