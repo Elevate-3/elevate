@@ -1,0 +1,58 @@
+name: 🚨 Issue Template
+description: Use this template to describe a new bug, feature, or task
+title: '[Issue] '
+labels: ['needs-triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Problem / What Needs to be Done
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the issue or feature request.
+      placeholder: What is the problem you're solving?
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: What are the conditions that must be met?
+      placeholder: Clear list of expectations or outcomes.
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Testing Steps
+
+  - type: textarea
+    id: testing
+    attributes:
+      label: Testing Steps
+      description: How should someone verify this works?
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Implementation Notes
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Implementation Notes
+      description: Any technical notes, references, or context.
+    validations:
+      required: false
