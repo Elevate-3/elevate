@@ -1,0 +1,46 @@
+name: Auto-link PR to Issue
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  auto-link:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract issue number from branch
+        id: extract_issue
+        run: |
+          BRANCH_NAME="${{ github.head_ref }}"
+          # Extract the first number from branch name (e.g., "774" from "774-add-instrument-list")
+          ISSUE_NUMBER=$(echo $BRANCH_NAME | grep -oE '^[0-9]+')
+          echo "issue_number=$ISSUE_NUMBER" >> $GITHUB_OUTPUT
+          echo "Branch: $BRANCH_NAME"
+          echo "Extracted issue number: $ISSUE_NUMBER"
+
+      - name: Update PR description with issue number
+        if: steps.extract_issue.outputs.issue_number != ''
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueNumber = '${{ steps.extract_issue.outputs.issue_number }}';
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+
+            let body = pr.body || '';
+
+            // Replace all instances of #ISSUE_ID with the actual issue number
+            body = body.replace(/#ISSUE_ID/g, `#${issueNumber}`);
+
+            // Update the PR
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              body: body
+            });
+
+            console.log(`Updated PR description, replaced #ISSUE_ID with #${issueNumber}`);
