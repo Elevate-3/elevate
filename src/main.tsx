@@ -10,10 +10,10 @@ import AuthGuard from './components/AuthGuard/AuthGuard'
 import { SessionContextProvider } from '@supabase/auth-helpers-react'
 import { supabase } from './lib/supabase'
 import SignIn from './views/Auth/SignIn'
-import './index.css'
 import SignUp from './views/Auth/Signup'
 import ForgotPassword from './views/Auth/ForgotPassword'
 import { FORGOT_PASSWORD, FORM, HOME, PROFILE, SIGN_IN, SIGN_UP } from './constants/routes'
+import './index.css'
 
 const container = document.getElementById('root')
 if (!container) throw new Error('Root container missing in index.html')
