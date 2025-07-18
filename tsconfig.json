@@ -33,7 +33,7 @@
     // ✅ ADD THESE INSIDE compilerOptions
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
 
