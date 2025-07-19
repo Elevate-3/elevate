@@ -32,8 +32,8 @@ const RootView: React.FC = () => {
           Sign Out
         </button>
       </header>
-    <NavBar/>
-   
+      <NavBar />
+
       {/* Main content area where nested routes will be rendered which are out children routes from main.tsx */}
       <main className="p-6">
         <Outlet />
