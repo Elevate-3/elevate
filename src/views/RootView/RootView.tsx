@@ -1,8 +1,9 @@
 import React from 'react'
 import { Outlet, Link, useNavigate } from 'react-router-dom'
 import { supabase } from '@/lib/supabase'
-import { FORM, HOME, PROFILE, SIGN_IN } from '@/constants/routes'
+import { HOME, PROFILE, SIGN_IN, GUIDE } from '@/constants/routes'
 import NavBar from '@/components/NavBar/NavBar'
+
 
 const RootView: React.FC = () => {
   const navigate = useNavigate()
@@ -19,11 +20,11 @@ const RootView: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Main layout component which will render for all children components within the <Outlet /> */}
-      <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
+      <header className="bg-gray-800 text-white p-4 flex justify-end items-center gap-4">
         <nav className="flex gap-4">
           <Link to={HOME}>Home</Link>
-          <Link to={PROFILE}>Users-Profile</Link>
-          <Link to={FORM}>Multi-Step-Form</Link>
+          <Link to={PROFILE}>Profile</Link> 
+          <Link to={GUIDE}>Guide</Link>
         </nav>
         <button
           onClick={handleSignOut}
