@@ -2,6 +2,7 @@ import React from 'react'
 import { Outlet, Link, useNavigate } from 'react-router-dom'
 import { supabase } from '@/lib/supabase'
 import { FORM, HOME, PROFILE, SIGN_IN } from '@/constants/routes'
+import NavBar from '@/components/NavBar/NavBar'
 
 const RootView: React.FC = () => {
   const navigate = useNavigate()
@@ -31,7 +32,8 @@ const RootView: React.FC = () => {
           Sign Out
         </button>
       </header>
-
+    <NavBar/>
+   
       {/* Main content area where nested routes will be rendered which are out children routes from main.tsx */}
       <main className="p-6">
         <Outlet />
