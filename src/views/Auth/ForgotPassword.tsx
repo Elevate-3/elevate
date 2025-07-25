@@ -8,7 +8,7 @@ function ForgotPassword() {
       title="Reset your password"
       subtitle="Enter your email address."
       links={[
-        { to: `${SIGN_IN}`, text: 'Back to Sign In' },
+        { to: `${SIGN_IN}`, text: 'Back to Sign In ' },
         { to: `${SIGN_UP}`, text: "Don't have an account? Sign up" },
       ]}
     />

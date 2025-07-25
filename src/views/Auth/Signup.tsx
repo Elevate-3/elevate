@@ -9,9 +9,9 @@ function SignUp() {
       title="Create your account"
       subtitle={
         <>
-          Or{' '}
-          <Link to={SIGN_IN} className="font-medium text-indigo-600 hover:text-indigo-500">
-            sign in to your existing account
+          Or {' '}
+          <Link to={SIGN_IN} className="font-medium text-black hover:text-black">
+          Sign in to your account.
           </Link>
         </>
       }

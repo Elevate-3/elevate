@@ -10,8 +10,8 @@ function SignIn() {
       subtitle={
         <>
           Or{' '}
-          <Link to={SIGN_UP} className="font-medium text-indigo-600 hover:text-indigo-500">
-            create a new account
+          <Link to={SIGN_UP} className="font-medium text-black hover:text-black">
+            Create a new account
           </Link>
         </>
       }
