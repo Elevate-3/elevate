@@ -12,9 +12,10 @@ import { supabase } from './lib/supabase'
 import SignIn from './views/Auth/SignIn'
 import SignUp from './views/Auth/Signup'
 import ForgotPassword from './views/Auth/ForgotPassword'
-import { FORGOT_PASSWORD, FORM, HOME, PROFILE, SIGN_IN, SIGN_UP, GUIDE } from './constants/routes'
+import { FORGOT_PASSWORD, FORM, HOME, PROFILE, SIGN_IN, SIGN_UP, GUIDE, SETTINGS } from './constants/routes'
 import './index.css'
 import Guide from './views/Guide/Guide'
+import Settings from './views/Settings/Settings'
 
 const container = document.getElementById('root')
 if (!container) throw new Error('Root container missing in index.html')
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
       { path: `${PROFILE}`, element: <Profile /> },
       { path: `${FORM}`, element: <MultiStepForm /> },
       { path: `${GUIDE}`, element: <Guide /> },
+      { path: `${SETTINGS}`, element: <Settings />},
     ],
   },
   /// These routes are for authentication and will not be protected by the AuthGuard

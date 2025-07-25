@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet, Link, useNavigate } from 'react-router-dom'
 import { supabase } from '@/lib/supabase'
-import { HOME, PROFILE, SIGN_IN, GUIDE } from '@/constants/routes'
+import { HOME, PROFILE, SIGN_IN, GUIDE, SETTINGS } from '@/constants/routes'
 import NavBar from '@/components/NavBar/NavBar'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { Bell } from 'lucide-react'
 
 const RootView: React.FC = () => {
   const navigate = useNavigate()
@@ -29,6 +30,10 @@ const RootView: React.FC = () => {
     navigate(PROFILE) // redirect to profile page
   }
 
+  const settingsPage = async () => {
+    navigate(SETTINGS) // redirect to settings
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Main layout component which will render for all children components within the <Outlet /> */}
@@ -37,6 +42,24 @@ const RootView: React.FC = () => {
           <Link to={HOME}>Home</Link>
           <Link to={GUIDE}>Guide</Link>
         </nav>
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Bell className="h-6 w-6 cursor-pointer" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-64">
+            <DropdownMenuLabel>Notifications</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              Setting Your Intentions <span className="ml-auto text-xs text-gray-500">5m ago</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              Building Daily Habits <span className="ml-auto text-xs text-gray-500">10m ago</span>
+            </DropdownMenuItem>
+            {/* …add more notification items here… */}
+          </DropdownMenuContent>
+        </DropdownMenu>
+
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Avatar>
@@ -48,7 +71,7 @@ const RootView: React.FC = () => {
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={profilePage}>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
+            <DropdownMenuItem onClick={settingsPage}>Settings</DropdownMenuItem>
             <DropdownMenuItem onClick={handleSignOut}>Sign Out</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
