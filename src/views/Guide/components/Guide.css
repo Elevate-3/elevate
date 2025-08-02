@@ -1,0 +1,86 @@
+/* ─── ROOT VARIABLES ───────────────────────────────────────────────────────────────── */
+:root {
+  --bg-purple:    #E8DFFC;
+  --card-bg:      #F6F7FA;
+  --blue-accent:  #1A73E8;
+  --text-dark:    #1A1A1A;
+  --text-muted:   #555;
+  --btn-bg:       #000;
+  --btn-hover:    rgba(0,0,0,0.85);
+}
+
+/* ─── WRAPPER + HEADING ──────────────────────────────────────────────────────────────── */
+.guides-wrapper {
+  background-color: var(--bg-purple);
+  padding: 32px;
+  /* if you want rounded edges around the whole section: */
+  /* border-radius: 8px; */
+}
+
+.guides-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text-dark);
+}
+
+/* ─── GRID LAYOUT ──────────────────────────────────────────────────────────────────── */
+.guides-grid {
+  display: grid;
+  /* try three cards on large screens, down to one on narrow: */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* ─── CARD ──────────────────────────────────────────────────────────────────────────── */
+.guide-card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Day label */
+.guide-day {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--blue-accent);
+  letter-spacing: 0.5px;
+}
+
+/* Title */
+.guide-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 8px 0 12px;
+  color: var(--text-dark);
+}
+
+/* Description */
+.guide-description {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+/* Button */
+.guide-btn {
+  width: 100%;
+  background-color: var(--btn-bg);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.guide-btn:hover {
+  background-color: var(--btn-hover);
+}
